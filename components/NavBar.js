@@ -28,7 +28,7 @@ const NavBar = () => {
             <span className="mr-6 mt-3 md:mt-0 cursor-pointer">Dashboard</span>
           </Link>
           <Link href="/about">
-            <span className="mr-6 mt-3 md:mt-0 cursor-pointer">Quiénes Somos</span>
+            <span className="mr-6 mt-3 md:mt-0 cursor-pointer">Nosotros</span>
           </Link>
           <div className="mt-3 md:mt-0">
             {!session ? (
