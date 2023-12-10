@@ -11,13 +11,15 @@ function dashboard() {
       if (session) {
         return (
 
-          <>
-          <NavBar></NavBar>
+          <div className=" h-screen bg-[url('/fondodash.png')]  bg-cover bg-center ">
+ <NavBar></NavBar>
+          </div>
+         
 
-          </>
+       
         )}
   return (
-    <div>
+    <div className=" h-screen bg-[url('/fondodash.png')]  bg-cover bg-center ">
        <NavBar></NavBar>
     </div>
   )
