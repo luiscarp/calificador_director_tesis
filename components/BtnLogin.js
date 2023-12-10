@@ -23,7 +23,7 @@ function BtnLogin() {
           <Link className=" mt-3 bg-blue-200 text-sky-950 p-2 font-bold text-lg shadow shadow-black rounded-md md:text-2xl" href="/dashboard"> Ir al dashboard </Link>
 
         </div>
-        <div className=" flex flex-col  bg-sky-950 items-center mt-4 py-5 text-white w-2/3 mx-auto text-lg font-bold justify-center md:w-full md:text-2xl">
+        <div className=" w-full flex flex-col  bg-sky-950 items-center mt-4 py-5 text-white mx-auto text-lg font-bold justify-center md:w-full md:text-2xl">
           Bienvenido, {session.user.name}
 
 
