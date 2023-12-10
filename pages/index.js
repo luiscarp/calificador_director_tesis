@@ -11,7 +11,8 @@ export default function Home() {
     <main >
       <div className=" h-screen bg-[url('/landing.png')]  bg-cover bg-center bg-no-repeat">
         <Cinta></Cinta>
-      <BtnLogin ></BtnLogin>
+        <BtnLogin></BtnLogin>
+
       </div>
     
       
