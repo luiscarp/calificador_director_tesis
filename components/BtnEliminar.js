@@ -11,7 +11,7 @@ function BtnEliminar({llave, fetchData}) {
 
   const deleteUniversidad = async () => {
     try {
-        const response = await axios.delete(`http://localhost:3000/api/universidaddb?id=${llave}`);
+        const response = await axios.delete(`https://calificador-director-tesis.vercel.app/api/universidaddb?id=${llave}`);
         console.log(response.data);
 
         await fetchData()
