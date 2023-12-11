@@ -18,7 +18,7 @@ import ListaUniversidades from '@/components/ListaUniversidades';
 
 function dashboard() {
 
-  const { data: session } = useSession();
+  
 
 
   
