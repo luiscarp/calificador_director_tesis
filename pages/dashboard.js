@@ -12,10 +12,13 @@ import { Toaster } from 'react-hot-toast';
 
 import { useState, useEffect } from 'react';
 
+import { signIn, signOut, useSession } from 'next-auth/react';
+
 import ListaUniversidades from '@/components/ListaUniversidades';
 
 function dashboard() {
-  
+
+  const { data: session } = useSession();
 
 
   
@@ -27,6 +30,9 @@ function dashboard() {
        
        
        <ListaUniversidades></ListaUniversidades>
+
+     +
+       
   
 
     </div>

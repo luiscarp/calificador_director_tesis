@@ -1,5 +1,8 @@
 import React from 'react'
 
+import { useSession } from 'next-auth/react';
+
+
 import Universidad from './Universidad'
 
 import { useState, useEffect } from 'react'
@@ -10,6 +13,10 @@ import { Toaster, toast } from 'react-hot-toast';
 import axios from 'axios'
 
 function ListaUniversidades() {
+
+  const{data: session} = useSession()
+
+
     const [data, setData] = useState(null);
 
     const [desplegar, setDesplegar] = useState(false)
@@ -17,6 +24,7 @@ function ListaUniversidades() {
     const [nombre, setNombre] = useState("")
 
     const [ubi, setUbi] = useState("")
+
 
 
  
@@ -36,6 +44,10 @@ function ListaUniversidades() {
 
     const handleShowAgregar = () => {
         setDesplegar(true);
+      };
+
+      const handleHideAgregar = () => {
+        setDesplegar(false);
       };
 
       const handleSubmit = async (e) => {
@@ -74,14 +86,25 @@ function ListaUniversidades() {
          
       };
 
+
+  
     return (
         <div className=' flex flex-col w-full items-center'>
-            <h1 className=' font-bold text-xl text-center my-2'> Lista de universidades</h1>
-            <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3" onClick={handleShowAgregar} >Agrega Universidad</button>
+            <h1 className=' font-bold text-xl text-center my-2 md:text-5xl'> Lista de universidades</h1>
+            { desplegar && (
+               <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-2xl" onClick={handleHideAgregar} >Cerrar dialogo</button>
+
+            )}
+                        { !desplegar && (
+               <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-2xl" onClick={handleShowAgregar} >Agregar Universidad</button>
+
+            )}
+            
+           
             {desplegar && (
                     <form className=' flex flex-col my-4' onSubmit={handleSubmit}>
                     <div className='flex flex-col my-2'>
-                      <label htmlFor="nombre">Ingrese nombre universidad:</label>
+                      <label className=' font-bold text-xl' htmlFor="nombre">Ingrese nombre universidad:</label>
                       <input
                         type="text"
                         id="nombre"
@@ -91,7 +114,7 @@ function ListaUniversidades() {
                       />
                     </div>
                     <div className='flex flex-col my-2'>
-                      <label htmlFor="ubi">Ingrese ciudad ubicación:</label>
+                      <label className=' font-bold text-xl' htmlFor="ubi">Ingrese ciudad ubicación:</label>
                       <input
                         type="text"
                         id="ubi"
@@ -100,13 +123,13 @@ function ListaUniversidades() {
                         onChange={(e) => setUbi(e.target.value)}
                       />
                     </div>
-                    <button className=' mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3' type="submit">Enviar</button>
+                    <button className=' mx-auto mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-2xl ' type="submit">Enviar</button>
                   </form>
             )}
             <ul>
                 {data && data.map((item) => (
                     <li key={item._id}>
-                        <Universidad universidad={item} />
+                        <Universidad universidad={item} fetchData = {fetchData} />
 
                     </li>
 
