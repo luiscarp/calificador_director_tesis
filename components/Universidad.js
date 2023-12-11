@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 
 function Universidad({universidad}) {
-    console.log("desde Universidad")
+   
   
 
   return (
