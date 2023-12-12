@@ -34,7 +34,7 @@ function FormUniv({ setShowEdit, nombrei, ubii, llave, fetchData }) {
         <div className=' w-full'>
             <form className=' flex flex-col my-4' onSubmit={handleSubmit}>
                 <div className='flex flex-col my-2 mx-3'>
-                    <label className=' font-bold text-lg' htmlFor="nombre">Nombre actualizado:</label>
+                    <label className=' font-bold text-lg md:text-3xl' htmlFor="nombre">Nombre actualizado:</label>
                     <input
                         type="text"
                         id="nombre"
@@ -44,7 +44,7 @@ function FormUniv({ setShowEdit, nombrei, ubii, llave, fetchData }) {
                     />
                 </div>
                 <div className='flex flex-col my-2 mx-3'>
-                    <label className=' font-bold text-lg' htmlFor="ubi">Ubicación actualizada:</label>
+                    <label className=' font-bold text-lg md:text-3xl' htmlFor="ubi">Ubicación actualizada:</label>
                     <input
                         type="text"
                         id="ubi"

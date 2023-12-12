@@ -90,13 +90,13 @@ function ListaUniversidades() {
   
     return (
         <div className=' flex flex-col w-full items-center'>
-            <h1 className=' font-bold text-xl text-center my-2 md:text-5xl'> Lista de universidades</h1>
+            <h1 className=' font-bold text-xl text-center my-2 md:text-6xl mb-3'> Lista de universidades</h1>
             { desplegar && (
-               <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-2xl" onClick={handleHideAgregar} >Cerrar dialogo</button>
+               <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-4xl" onClick={handleHideAgregar} >Cerrar dialogo</button>
 
             )}
                         { !desplegar && (
-               <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-2xl" onClick={handleShowAgregar} >Agregar Universidad</button>
+               <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-4xl mb-5" onClick={handleShowAgregar} >Agregar Universidad</button>
 
             )}
             
