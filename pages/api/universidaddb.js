@@ -48,6 +48,32 @@ export default async function handler(req, res) {
                 return res.status(500).json({ message: "Error al eliminar" });
             }
             break;
+            case "PUT":
+                try {
+                    if (!query.id) {
+                        return res.status(400).json({ message: "Falta el identificador" });
+                    }
+    
+                    const id = new ObjectId(query.id);
+                    const updateData = {
+                        nombre: body.nombre,
+                        ubi: body.ubi
+                    };
+    
+                    const updateResult = await universidades.updateOne(
+                        { _id: id },
+                        { $set: updateData }
+                    );
+    
+                    if (updateResult.matchedCount === 0) {
+                        return res.status(404).json({ message: "No se encontró el documento con el ID proporcionado" });
+                    }
+    
+                    return res.status(200).json({ message: "Documento actualizado con éxito" });
+                } catch (error) {
+                    return res.status(500).json({ message: "Error al actualizar" });
+                }
+                break;
 
 
 

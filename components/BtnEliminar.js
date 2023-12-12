@@ -29,7 +29,7 @@ function BtnEliminar({llave, fetchData}) {
   return (
     <div className='w-1/4' >
 
-      <button className=' bg-red-600 text-white font-bold text-md w-full px-2 py-1 text-center rounded-lg mx-6' onClick={deleteUniversidad}>Eliminar</button>
+      <button className=' bg-red-600 text-white font-bold text-md w-full px-2 py-1 text-center rounded-lg' onClick={deleteUniversidad}>Eliminar</button>
       
     </div>
   )
