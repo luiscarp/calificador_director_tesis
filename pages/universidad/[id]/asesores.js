@@ -41,7 +41,7 @@ function Asesores() {
         if (id) {
             fetchData();
         }
-    }, []); // Este useEffect se ejecutará cada vez que el valor de 'id' cambie
+    }, [id]); // Este useEffect se ejecutará cada vez que el valor de 'id' cambie
 
 
 
@@ -58,7 +58,7 @@ function Asesores() {
 
                     <>
                         <HeaderAsesor univ={data.nombre}></HeaderAsesor>
-                        <ListaAsesores iduni={id} universidad={data.universidad} idUniversidad={data.idUniversidad}></ListaAsesores>
+                        <ListaAsesores iduni={id} ></ListaAsesores>
 
 
                     </>

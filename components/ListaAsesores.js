@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 
 
-function ListaAsesores({ iduni, universidad, idUniversidad }) {
+function ListaAsesores({ iduni}) {
 
     const { data: session, status } = useSession()
 
@@ -28,7 +28,7 @@ function ListaAsesores({ iduni, universidad, idUniversidad }) {
     useEffect(() => {
         
         fetchData();
-    }, []);
+    }, [iduni]);
 
     const fetchData = async () => {
         try {
