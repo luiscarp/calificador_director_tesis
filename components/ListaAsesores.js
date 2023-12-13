@@ -32,7 +32,7 @@ function ListaAsesores({ iduni, universidad, idUniversidad }) {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`https://calificador-director-tesis.vercel.app/api/consultaasesordb?id=${iduni}`);
+            const response = await axios.get(`http://localhost:3000/api/consultaasesordb?id=${iduni}`);
             setData(response.data);
         } catch (error) {
             console.error('Error al obtener los datos', error);
