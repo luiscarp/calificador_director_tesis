@@ -58,7 +58,7 @@ function Asesores() {
 
                     <>
                         <HeaderAsesor univ={data.nombre}></HeaderAsesor>
-                        <ListaAsesores iduni={id} ></ListaAsesores>
+                        <ListaAsesores iduni={id} universidad = {data.nombre}></ListaAsesores>
 
 
                     </>

@@ -5,9 +5,10 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 import { useSession } from 'next-auth/react';
+import Asesor from './Asesor';
 
 
-function ListaAsesores({ iduni}) {
+function ListaAsesores({ iduni, universidad}) {
 
     const { data: session, status } = useSession()
 
@@ -52,6 +53,30 @@ function ListaAsesores({ iduni}) {
         console.log(especialidades)
 
         console.log(deptoFacultad)
+
+        try {
+            // Enviar datos a "/api/testmongodb" mediante una solicitud POST con Axios
+            const response = await axios.post('/api/asesordb', {
+              nombre: nombre, // nombre: nombre
+              universidad: universidad,
+              idUniversidad: iduni,
+              temaInv: temaInv, 
+              especialidades: especialidades,
+              deptoFacultad: deptoFacultad
+            });
+      
+            // Manejar la respuesta
+            console.log('Datos enviados con éxito:', response.data);
+      
+            await fetchData();
+      
+          }
+      
+          catch (error) {
+            // Manejar errores en la solicitud
+            console.error('Error en la solicitud:', error);
+          }
+      
     
 
     
@@ -72,12 +97,12 @@ function ListaAsesores({ iduni}) {
     return (
         <div className='flex flex-col w-full items-center'>
             
-            <h1 className=' font-bold text-xl text-center my-2 md:text-6xl mb-3'> Lista de Asesores</h1>
+            <h1 className=' font-bold text-xl text-center my-2 md:text-4xl mb-3'> Lista de Asesores</h1>
             {desplegar && (
                 <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-4xl" onClick={handleHideAgregar} >Cerrar dialogo</button>
 
             )}
-            {!desplegar && (
+            {(!desplegar && status == "authenticated") && (
                 <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-4xl mb-5" onClick={handleShowAgregar} >Agregar Asesor Tesis</button>
 
             )}
@@ -131,7 +156,7 @@ function ListaAsesores({ iduni}) {
             <ul>
                 {data && data.map((item) => (
                     <li key={item._id}>
-                        <h1 className=' font-bold'>{item.nombre}</h1>
+                        <Asesor fetchData = {fetchData} asesor = {item}></Asesor>
 
                     </li>
 
