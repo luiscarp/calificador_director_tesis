@@ -4,15 +4,13 @@ import NavBar from '@/components/NavBar';
 
 import SearchBox from '@/components/SearchBox';
 
-import axios from 'axios';
+
 
 import toast from 'react-hot-toast';
 
 import { Toaster } from 'react-hot-toast';
 
-import { useState, useEffect } from 'react';
 
-import { signIn, signOut, useSession } from 'next-auth/react';
 
 import ListaUniversidades from '@/components/ListaUniversidades';
 
@@ -25,13 +23,13 @@ function dashboard() {
 
 
   return (
-    <div className=" h-screen bg-[url('/fondodash.png')]  bg-cover bg-center ">
+    <div className=" h-screen bg-[url('/fondodash.png')]  bg-cover bg-center bg-repeat-y ">
        <NavBar></NavBar>
        
        
        <ListaUniversidades></ListaUniversidades>
 
-     +
+     
        
   
 

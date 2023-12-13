@@ -4,14 +4,15 @@ import React from 'react'
 
 import Link from "next/link";
 
-function BtnLogin() {
+function LoginScreen() {
   const { data: session, status } = useSession()
+  console.log(status)
 
   if (status === "loading") {
     return <span>Loading ... </span>
   }
 
-  if (session) {
+  if (status=="authenticated") {
     return (
       <>
         <div className=" h-1/3">
@@ -68,4 +69,4 @@ function BtnLogin() {
   )
 }
 
-export default BtnLogin
+export default LoginScreen

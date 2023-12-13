@@ -2,18 +2,34 @@ import { useRouter } from 'next/router';
 
 import { useState, useEffect } from 'react';
 
+import { useSession } from 'next-auth/react';
+
 import axios from 'axios';
 
+import NavBar from '@/components/NavBar';
+
+import HeaderAsesor from '@/components/HeaderAsesor';
+
+import ListaAsesores from '@/components/ListaAsesores';
 
 
 
 function Asesores() {
-    const [data, setData] = useState(null);
+
     const router = useRouter();
-    const { id } = router.query; // Obtener el ID de la universidad de la URL
+    // Obtener el ID de la universidad de la URL
+
+
+    const { id } = router.query;
+    const [data, setData] = useState(null);
+
+    const { data: session, status } = useSession()
+
 
     useEffect(() => {
+        
         const fetchData = async () => {
+            
             try {
                 const response = await axios.get(`https://calificador-director-tesis.vercel.app/api/consultaunidb?id=${id}`);
                 setData(response.data);
@@ -25,25 +41,29 @@ function Asesores() {
         if (id) {
             fetchData();
         }
-    }, [id]); // Este useEffect se ejecutará cada vez que el valor de 'id' cambie
+    }, []); // Este useEffect se ejecutará cada vez que el valor de 'id' cambie
 
-    console.log(data); // Esto mostrará 'data' en la consola cada vez que el componente se renderice
+
 
 
 
     return (
-        <div>
-            <h1>Asesores de la Universidad</h1>
-            {data &&  (
-                    <h1 >
-                        {data.nombre}
-
-                    </h1>
+        <div >
+            <NavBar></NavBar>
 
 
-)}
+            <div className=" h-screen bg-[url('/asesores.png')]  bg-cover bg-center ">
+        
 
-         
+                        <HeaderAsesor univ={data.nombre}></HeaderAsesor>
+                        <ListaAsesores iduni = {id} universidad = {universidad} idUniversidad = {idUniversidad}></ListaAsesores>
+
+            
+
+
+            </div>
+
+
         </div>
     );
 }
