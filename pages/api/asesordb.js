@@ -62,8 +62,6 @@ export default async function handler(req, res) {
                     const id = new ObjectId(query.id);
                     const updateData = {
                         nombre: body.nombre,
-                        universidad: body.universidad,
-                        idUniversidad: body.idUniversidad,
                         temaInv: body.temaInv,
                         especialidades: body.especialidades,
                         deptoFacultad: body.deptoFacultad

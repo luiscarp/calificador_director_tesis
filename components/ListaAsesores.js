@@ -2,6 +2,10 @@ import React from 'react'
 
 import axios from 'axios';
 
+
+
+import { Toaster, toast } from 'react-hot-toast';
+
 import { useState, useEffect } from 'react';
 
 import { useSession } from 'next-auth/react';
@@ -23,6 +27,8 @@ function ListaAsesores({ iduni, universidad}) {
     const[especialidades, setEspecialidades] = useState("")
 
     const[deptoFacultad, setDeptoFacultad] = useState("")
+
+    
   
 
 
@@ -69,6 +75,8 @@ function ListaAsesores({ iduni, universidad}) {
             console.log('Datos enviados con éxito:', response.data);
       
             await fetchData();
+
+            toast.success("Asesor enviado con exito")
       
           }
       
@@ -96,6 +104,8 @@ function ListaAsesores({ iduni, universidad}) {
 
     return (
         <div className='flex flex-col w-full items-center'>
+
+            <Toaster></Toaster>
             
             <h1 className=' font-bold text-xl text-center my-2 md:text-4xl mb-3'> Lista de Asesores</h1>
             {desplegar && (

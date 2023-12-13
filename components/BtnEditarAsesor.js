@@ -1,19 +1,12 @@
 import React from 'react'
 
-import { useState } from 'react'
+function BtnEditarAsesor({setShowEdit}) {
 
-function BtnEditar({ setShowEdit }) {
-  
-
-
-  const handleShowEdit = () => {
-    setShowEdit(true)
-
-  }
-
-
-
-
+    const handleShowEdit = () => {
+        setShowEdit(true)
+    
+      }
+    
   return (
     <div className='w-1/4'>
       <div className='w-full '>
@@ -28,4 +21,4 @@ function BtnEditar({ setShowEdit }) {
   )
 }
 
-export default BtnEditar
+export default BtnEditarAsesor

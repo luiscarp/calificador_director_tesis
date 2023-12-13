@@ -4,6 +4,8 @@ import { useState } from 'react'
 
 import axios from 'axios'
 
+import {toast, Toaster} from 'react-hot-toast'
+
 
 function FormUniv({ setShowEdit, nombrei, ubii, llave, fetchData }) {
 
@@ -18,7 +20,8 @@ function FormUniv({ setShowEdit, nombrei, ubii, llave, fetchData }) {
                 nombre: nombre,
                 ubi: ubi
             });
-            console.log(response.data); // Respuesta del servidor
+          
+            toast.success("Datos modificados con exito")
            
         } catch (error) {
          
@@ -26,12 +29,15 @@ function FormUniv({ setShowEdit, nombrei, ubii, llave, fetchData }) {
         }
 
         fetchData()
+
+        
         
         setShowEdit(false)
     }
 
     return (
         <div className=' w-full'>
+            <Toaster></Toaster>
             <form className=' flex flex-col my-4' onSubmit={handleSubmit}>
                 <div className='flex flex-col my-2 mx-3'>
                     <label className=' font-bold text-lg md:text-3xl' htmlFor="nombre">Nombre actualizado:</label>

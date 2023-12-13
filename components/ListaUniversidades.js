@@ -73,6 +73,9 @@ function ListaUniversidades() {
 
       await fetchData();
 
+      toast.success("Datos enviados con éxito")
+
+
     }
 
     catch (error) {
@@ -90,6 +93,7 @@ function ListaUniversidades() {
 
   return (
     <div className=' flex flex-col w-full items-center'>
+      <Toaster></Toaster>
       <h1 className=' font-bold text-xl text-center my-2 md:text-6xl mb-3'> Lista de universidades</h1>
       {desplegar && (
         <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-4xl" onClick={handleHideAgregar} >Cerrar dialogo</button>
@@ -124,6 +128,7 @@ function ListaUniversidades() {
             />
           </div>
           <button className=' mx-auto mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-2xl ' type="submit">Enviar</button>
+          
         </form>
       )}
       <ul>
