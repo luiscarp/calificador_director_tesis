@@ -25,7 +25,7 @@ function Asesor({ fetchData, asesor }) {
             <h1 className=' font-bold text-center text-lg md:text-4xl'>Nombre: {asesor.nombre}</h1>
             <h1 className='  text-center text-lg  md:text-4xl'>Pertenece al departamento o facultad: {asesor.deptoFacultad}</h1>
             <h1 className='  text-center text-lg  md:text-4xl'>Pertenece al departamento o facultad: {asesor._id}</h1>
-            <Link href={`/asesores/${asesor._id}/calificacion`} className=' mx-auto mt-1 bg-blue-200 text-sky-950 p-1 rounded-md shadow-black shadow w-2/3 font-bold text-md my-4 md:text-3xl text-center ' >Ver calificación</Link>
+            <Link href={`/asesores/${asesor._id}/calificaciones`} className=' mx-auto mt-1 bg-blue-200 text-sky-950 p-1 rounded-md shadow-black shadow w-2/3 font-bold text-md my-4 md:text-3xl text-center ' >Ver calificación</Link>
 
             <div className=' flex flex-col w-full'>
 
