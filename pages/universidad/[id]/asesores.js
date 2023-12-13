@@ -27,9 +27,9 @@ function Asesores() {
 
 
     useEffect(() => {
-        
+
         const fetchData = async () => {
-            
+
             try {
                 const response = await axios.get(`/api/consultaunidb?id=${id}`);
                 setData(response.data);
@@ -53,12 +53,24 @@ function Asesores() {
 
 
             <div className=" h-screen bg-[url('/asesores.png')]  bg-cover bg-center ">
-        
 
+                {data && (
+
+                    <>
                         <HeaderAsesor univ={data.nombre}></HeaderAsesor>
-                        <ListaAsesores iduni = {id} universidad = {universidad} idUniversidad = {idUniversidad}></ListaAsesores>
+                        <ListaAsesores iduni={id} universidad={universidad} idUniversidad={idUniversidad}></ListaAsesores>
 
-            
+
+                    </>
+
+
+
+                )}
+
+
+
+
+
 
 
             </div>
