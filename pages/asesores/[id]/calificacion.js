@@ -1,16 +1,4 @@
-import { useRouter } from 'next/router';
-
-import { useState, useEffect } from 'react';
-
-import { useSession } from 'next-auth/react';
-
-import axios from 'axios';
-
-import NavBar from '@/components/NavBar';
-
-import HeaderAsesor from '@/components/HeaderAsesor';
-
-import ListaAsesores from '@/components/ListaAsesores';
+import { useRouter } from "next/router";
 
 function calificacion() {
     const router = useRouter();
