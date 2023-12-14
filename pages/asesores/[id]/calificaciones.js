@@ -49,11 +49,11 @@ function Calificaciones() {
 
 
   return (
-    <div className=" h-screen bg-[url('/calificaciones.png')]  bg-cover bg-center bg-repeat-y">
+    <div className="  bg-[url('/calificaciones.png')]  bg-cover bg-center bg-repeat-y">
       <NavBar></NavBar>
 
       { data && (
-        <PerfilAsesor nombre = {data.nombre} universidad={data.universidad} deptoFacultad={data.deptoFacultad} temaInv={data.temaInv} especialidades={data.especialidades} ></PerfilAsesor>
+        <PerfilAsesor idAsesor = {data._id} nombre = {data.nombre} universidad={data.universidad} deptoFacultad={data.deptoFacultad} temaInv={data.temaInv} especialidades={data.especialidades} ></PerfilAsesor>
 
 
       )}
