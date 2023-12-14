@@ -14,9 +14,7 @@ export default async function consultaasesordb(req, res) {
                     const idAsesor = query.id;
                     const resultado = await calificaciones.find({ id_asesor: idAsesor }).toArray();
 
-                    if (resultado.length === 0) {
-                        return res.status(404).json({ message: 'No se encontraron calificaciones para este asesor' });
-                    }
+    
 
                     return res.status(200).json(resultado);
                 } else {
