@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
     <main >
-      <div className=" h-screen bg-[url('/landing.png')]  bg-cover bg-center bg-no-repeat">
+      <div className=" h-screen bg-[url('/index.png')]  bg-cover bg-center bg-no-repeat">
         <Cinta></Cinta>
         <LoginScreen></LoginScreen>
 
