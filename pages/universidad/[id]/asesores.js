@@ -12,6 +12,8 @@ import HeaderAsesor from '@/components/HeaderAsesor';
 
 import ListaAsesores from '@/components/ListaAsesores';
 
+import Footer from '@/components/Footer';
+
 
 
 function Asesores() {
@@ -74,6 +76,8 @@ function Asesores() {
 
 
             </div>
+
+            <Footer></Footer>
 
 
         </div>

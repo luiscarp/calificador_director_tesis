@@ -8,6 +8,8 @@ import { useSession } from 'next-auth/react';
 
 import { useEffect } from 'react';
 
+import Footer from '@/components/Footer';
+
 import axios from 'axios';
 
 import NavBar from '@/components/NavBar';
@@ -57,6 +59,8 @@ function Calificaciones() {
 
 
       )}
+
+      <Footer></Footer>
     </div>
   )
 }

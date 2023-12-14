@@ -14,6 +14,8 @@ import { Toaster } from 'react-hot-toast';
 
 import ListaUniversidades from '@/components/ListaUniversidades';
 
+import Footer from '@/components/Footer';
+
 function dashboard() {
 
   
@@ -28,6 +30,8 @@ function dashboard() {
        
        
        <ListaUniversidades></ListaUniversidades>
+
+<Footer></Footer>
 
      
        
