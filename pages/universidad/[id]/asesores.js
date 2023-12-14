@@ -52,7 +52,7 @@ function Asesores() {
             <NavBar></NavBar>
 
 
-            <div className=" h-screen bg-[url('/asesores.png')]  bg-cover bg-center ">
+            <div className="  bg-[url('/asesores.png')]  bg-cover bg-center bg-repeat-y">
 
                 {data && (
 

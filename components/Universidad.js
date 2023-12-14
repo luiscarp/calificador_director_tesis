@@ -30,7 +30,7 @@ function Universidad({ universidad, fetchData }) {
 
 
   return (
-    <div className=' flex flex-col justify-start items-center my-6 md:my-14' >
+    <div className=' flex flex-col justify-start items-center my-6 md:my-14 ' >
       <h1 className=' font-bold text-center text-lg md:text-4xl'>Nombre: {universidad.nombre}</h1>
       <h1 className='  text-center text-lg  md:text-4xl'>Ubicación: {universidad.ubi}</h1>
 

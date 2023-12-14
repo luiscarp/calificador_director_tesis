@@ -23,7 +23,7 @@ function dashboard() {
 
 
   return (
-    <div className=" h-screen bg-[url('/fondodash.png')]  bg-cover bg-center bg-repeat-y ">
+    <div className=" bg-[url('/fondodash.png')]  bg-cover bg-center bg-repeat-y ">
        <NavBar></NavBar>
        
        
