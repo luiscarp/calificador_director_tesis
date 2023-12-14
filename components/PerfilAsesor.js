@@ -14,6 +14,8 @@ import { useSession } from 'next-auth/react';
 
 import { Toaster, toast } from 'react-hot-toast';
 
+import EliminarComentario from './EliminarComentario';
+
 function PerfilAsesor({ nombre, universidad, deptoFacultad, temaInv, especialidades, idAsesor }) {
   const [data, setData] = useState()
   const [general, setGeneral] = useState(1)
@@ -111,6 +113,7 @@ function PerfilAsesor({ nombre, universidad, deptoFacultad, temaInv, especialida
       fetchData();
 
       toast.success("Asesor enviado con exito")
+      window.location.reload();
 
     }
 
@@ -236,6 +239,11 @@ function PerfilAsesor({ nombre, universidad, deptoFacultad, temaInv, especialida
           {data.map((item) => (
             <li key={item._id}>
               <Comentario comentario={item.comentario}></Comentario>
+              {(  status==="authenticated" && session.user.roles.includes("admin") ) && (<>
+                <h1 className=' font-bold text-lg md:text-2xl'>Comentario realizado por: {item.email_user}</h1>
+                <EliminarComentario llave= {item._id} fetchData = {fetchData}></EliminarComentario>
+                </>
+              )}
 
 
             </li>
