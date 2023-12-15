@@ -18,24 +18,24 @@ import Footer from '@/components/Footer';
 
 function dashboard() {
 
-  
 
 
-  
+
+
 
 
   return (
-    <div className=" bg-[url('/fondodash.png')]  bg-cover bg-center bg-repeat-y ">
-       <NavBar></NavBar>
-       
-       
-       <ListaUniversidades></ListaUniversidades>
+    <div className=" bg-cyan-50">
+      <NavBar></NavBar>
 
-<Footer></Footer>
 
-     
-       
-  
+      <ListaUniversidades></ListaUniversidades>
+
+      <Footer></Footer>
+
+
+
+
 
     </div>
   )

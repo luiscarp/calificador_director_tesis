@@ -10,6 +10,8 @@ import { useState, useEffect } from 'react'
 
 import { Toaster, toast } from 'react-hot-toast';
 
+import SearchBox from './SearchBox';
+
 import axios from 'axios'
 
 function ListaUniversidades() {
@@ -94,44 +96,50 @@ function ListaUniversidades() {
   return (
     <div className=' flex flex-col w-full items-center'>
       <Toaster></Toaster>
-      <h1 className=' font-bold text-xl text-center my-2 md:text-6xl mb-3'> Lista de universidades</h1>
+      <h1 className=' font-bold text-xl text-center my-2 md:text-6xl mb-3 text-yellow-950'> Busca tu universidad <span className=' text-blue-900'>o tu asesor</span></h1>
+      <SearchBox></SearchBox>
       {desplegar && (
         <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-4xl" onClick={handleHideAgregar} >Cerrar dialogo</button>
 
       )}
       {(!desplegar && status == "authenticated") && (
-        <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-4xl mb-5" onClick={handleShowAgregar} >Agregar Universidad</button>
+        <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-4xl mb-20" onClick={handleShowAgregar} >Agregar Universidad</button>
 
       )}
 
 
       {desplegar && (
-        <form className=' flex flex-col my-4' onSubmit={handleSubmit}>
+        <form className='bg-cyan-50 flex flex-col my-4' onSubmit={handleSubmit}>
           <div className='flex flex-col my-2'>
-            <label className=' font-bold text-xl' htmlFor="nombre">Ingrese nombre universidad:</label>
+            <label className=' font-bold text-xl text-yellow-950 mb-3 md:text-4xl' htmlFor="nombre">Ingrese nombre universidad:</label>
             <input
               type="text"
               id="nombre"
+              className=' text-xl md:text-4xl'
               value={nombre}
               placeholder='Nombre de universidad'
               onChange={(e) => setNombre(e.target.value)}
             />
           </div>
           <div className='flex flex-col my-2'>
-            <label className=' font-bold text-xl' htmlFor="ubi">Ingrese ciudad ubicación:</label>
+            <label className=' font-bold text-xl  text-yellow-950 mb-3 md:text-4xl' htmlFor="ubi">Ingrese ciudad ubicación:</label>
             <input
               type="text"
               id="ubi"
+              className=' text-xl md:text-4xl'
               value={ubi}
               placeholder='ubicacion universidad'
               onChange={(e) => setUbi(e.target.value)}
             />
           </div>
-          <button className=' mx-auto mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-2xl ' type="submit">Enviar</button>
+          <button className=' mx-auto mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold mb-20 md:text-2xl ' type="submit">Enviar</button>
           
         </form>
       )}
-      <ul>
+
+     
+      <ul className=' bg-stone-100 w-full'>
+      <h1 className=' font-bold text-xl text-center my-2 md:text-6xl mb-3 text-yellow-950'> Lista de universidades completa</h1>
         {data && data.map((item) => (
           <li key={item._id}>
             <Universidad universidad={item} fetchData={fetchData} />

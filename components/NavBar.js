@@ -8,7 +8,7 @@ const NavBar = () => {
   const { data: session } = useSession();
 
   return (
-    <nav className="bg-gray-800 text-white p-4">
+    <nav className="bg-zinc-100 text-yellow-950 p-4 md:p-7">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex justify-between items-center w-full md:w-auto">
           <Link href="/">
@@ -38,7 +38,7 @@ const NavBar = () => {
             ) : (
               <div className="flex flex-col md:flex-row items-center">
                 <span className="mr-6">{session.user.name}</span>
-                <button onClick={() => signOut()} className="text-white">
+                <button onClick={() => signOut()} className="text-yellow-95">
                   (Logout)
                 </button>
               </div>
