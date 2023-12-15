@@ -12,7 +12,7 @@ import { useSession } from 'next-auth/react';
 import Asesor from './Asesor';
 
 
-function ListaAsesores({ iduni, universidad}) {
+function ListaAsesores({ iduni, universidad }) {
 
     const { data: session, status } = useSession()
 
@@ -24,16 +24,16 @@ function ListaAsesores({ iduni, universidad}) {
 
     const [temaInv, setTemaInv] = useState("")
 
-    const[especialidades, setEspecialidades] = useState("")
+    const [especialidades, setEspecialidades] = useState("")
 
-    const[deptoFacultad, setDeptoFacultad] = useState("")
+    const [deptoFacultad, setDeptoFacultad] = useState("")
 
-    
-  
+
+
 
 
     useEffect(() => {
-        
+
         fetchData();
     }, [iduni]);
 
@@ -47,9 +47,9 @@ function ListaAsesores({ iduni, universidad}) {
     };
     const handleSubmit = async (e) => {
         e.preventDefault(); // Para evitar que la página se recargue al enviar el formulario
-    
+
         // Aquí podrías hacer algo con los valores de nombre y ubi, como enviarlos a una API
-    
+
         setDesplegar(false); // Establece desplegar como false
 
         console.log(nombre)
@@ -63,34 +63,34 @@ function ListaAsesores({ iduni, universidad}) {
         try {
             // Enviar datos a "/api/testmongodb" mediante una solicitud POST con Axios
             const response = await axios.post('/api/asesordb', {
-              nombre: nombre, // nombre: nombre
-              universidad: universidad,
-              idUniversidad: iduni,
-              temaInv: temaInv, 
-              especialidades: especialidades,
-              deptoFacultad: deptoFacultad
+                nombre: nombre, // nombre: nombre
+                universidad: universidad,
+                idUniversidad: iduni,
+                temaInv: temaInv,
+                especialidades: especialidades,
+                deptoFacultad: deptoFacultad
             });
-      
+
             // Manejar la respuesta
             console.log('Datos enviados con éxito:', response.data);
-      
+
             await fetchData();
 
             toast.success("Asesor enviado con exito")
-      
-          }
-      
-          catch (error) {
+
+        }
+
+        catch (error) {
             // Manejar errores en la solicitud
             console.error('Error en la solicitud:', error);
-          }
-      
-    
+        }
 
-    
-    
-    
-      };
+
+
+
+
+
+    };
 
     const handleShowAgregar = () => {
         setDesplegar(true);
@@ -100,20 +100,22 @@ function ListaAsesores({ iduni, universidad}) {
         setDesplegar(false);
     };
 
-    
+
 
     return (
         <div className='flex flex-col w-full items-center'>
 
             <Toaster></Toaster>
-            
-            <h1 className=' font-bold text-xl text-center my-2 md:text-4xl mb-3'> Lista de Asesores</h1>
+
+            <h1 className=' font-bold text-xl text-center my-2 md:text-6xl mb-3 text-yellow-950'> ¿No encuentras tu asesor de tésis? <span className=' text-blue-900'> Agregalo</span></h1>
+
+
             {desplegar && (
                 <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-4xl" onClick={handleHideAgregar} >Cerrar dialogo</button>
 
             )}
             {(!desplegar && status == "authenticated") && (
-                <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-4xl mb-5" onClick={handleShowAgregar} >Agregar Asesor Tesis</button>
+                <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-4xl mb-20" onClick={handleShowAgregar} >Agregar Asesor Tesis</button>
 
             )}
 
@@ -121,8 +123,9 @@ function ListaAsesores({ iduni, universidad}) {
             {desplegar && (
                 <form className=' flex flex-col my-4' onSubmit={handleSubmit}>
                     <div className='flex flex-col my-2'>
-                        <label className=' font-bold text-xl' htmlFor="nombre">Ingrese nombre Asesor:</label>
+                        <label className=' font-bold text-xl text-yellow-950 mb-3 md:text-4xl' htmlFor="nombre">Ingrese nombre Asesor:</label>
                         <input
+                            className=' text-xl md:text-4xl'
                             type="text"
                             id="nombre"
                             value={nombre}
@@ -131,8 +134,9 @@ function ListaAsesores({ iduni, universidad}) {
                         />
                     </div>
                     <div className='flex flex-col my-2'>
-                        <label className=' font-bold text-xl' htmlFor="ubi">Ingrese Tema de investigación:</label>
+                        <label className=' font-bold text-xl text-yellow-950 mb-3 md:text-4xl' htmlFor="ubi">Ingrese Tema de investigación:</label>
                         <input
+                            className=' text-xl md:text-4xl'
                             type="text"
                             id="ubi"
                             value={temaInv}
@@ -141,8 +145,9 @@ function ListaAsesores({ iduni, universidad}) {
                         />
                     </div>
                     <div className='flex flex-col my-2'>
-                        <label className=' font-bold text-xl' htmlFor="ubi">Ingrese especialidades:</label>
+                        <label className=' font-bold text-xl text-yellow-950 mb-3 md:text-4xl' htmlFor="ubi">Ingrese especialidades:</label>
                         <input
+                            className=' text-xl md:text-4xl'
                             type="text"
                             id="ubi"
                             value={especialidades}
@@ -151,8 +156,9 @@ function ListaAsesores({ iduni, universidad}) {
                         />
                     </div>
                     <div className='flex flex-col my-2'>
-                        <label className=' font-bold text-xl' htmlFor="ubi">Ingrese el departamento o facultad:</label>
+                        <label className=' font-bold text-xl text-yellow-950 mb-3 md:text-4xl' htmlFor="ubi">Ingrese el departamento o facultad:</label>
                         <input
+                            className=' text-xl md:text-4xl'
                             type="text"
                             id="ubi"
                             value={deptoFacultad}
@@ -160,13 +166,15 @@ function ListaAsesores({ iduni, universidad}) {
                             onChange={(e) => setDeptoFacultad(e.target.value)}
                         />
                     </div>
-                    <button className=' mx-auto mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-2xl ' type="submit">Enviar</button>
+                    <button className='mb-20 mx-auto mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-2xl ' type="submit">Enviar</button>
                 </form>
             )}
-            <ul>
+
+            <ul className='bg-stone-100 w-full'>
+                <h1 className=' font-bold text-xl text-center my-2 md:text-6xl mb-3 text-yellow-950'> Lista de asesores <span className=' text-blue-900'>completa</span></h1>
                 {data && data.map((item) => (
                     <li key={item._id}>
-                        <Asesor fetchData = {fetchData} asesor = {item}></Asesor>
+                        <Asesor fetchData={fetchData} asesor={item}></Asesor>
 
                     </li>
 

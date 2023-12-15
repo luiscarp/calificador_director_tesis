@@ -50,11 +50,11 @@ function Asesores() {
 
 
     return (
-        <div >
+        <div className="  bg-cyan-50" >
             <NavBar></NavBar>
 
 
-            <div className="  bg-[url('/asesores.png')]  bg-cover bg-center bg-repeat-y">
+            <div className="  bg-cyan-50">
 
                 {data && (
 

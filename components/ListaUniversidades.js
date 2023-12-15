@@ -98,10 +98,15 @@ function ListaUniversidades() {
       <Toaster></Toaster>
       <h1 className=' font-bold text-xl text-center my-2 md:text-6xl mb-3 text-yellow-950'> Busca tu universidad <span className=' text-blue-900'>o tu asesor</span></h1>
       <SearchBox></SearchBox>
+
+      <h1 className=' font-bold text-xl text-center my-2 md:text-6xl mb-3 text-yellow-950'> ¿No encuentras tu universidad? <span className=' text-blue-900'> Agregala</span></h1>
       {desplegar && (
         <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-4xl" onClick={handleHideAgregar} >Cerrar dialogo</button>
 
       )}
+
+      
+
       {(!desplegar && status == "authenticated") && (
         <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-4xl mb-20" onClick={handleShowAgregar} >Agregar Universidad</button>
 
@@ -133,13 +138,13 @@ function ListaUniversidades() {
             />
           </div>
           <button className=' mx-auto mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold mb-20 md:text-2xl ' type="submit">Enviar</button>
-          
+
         </form>
       )}
 
-     
+
       <ul className=' bg-stone-100 w-full'>
-      <h1 className=' font-bold text-xl text-center my-2 md:text-6xl mb-3 text-yellow-950'> Lista de universidades completa</h1>
+        <h1 className=' font-bold text-xl text-center my-2 md:text-6xl mb-3 text-yellow-950'> Lista de universidades <span className=' text-blue-900'>completa</span></h1>
         {data && data.map((item) => (
           <li key={item._id}>
             <Universidad universidad={item} fetchData={fetchData} />
