@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import LoginScreen from '@/components/LoginScreen'
 import Cinta from '@/components/Cinta'
@@ -10,7 +9,7 @@ export default function Home() {
   return (
     <main >
       <div className=" h-screen bg-[url('/index.png')]  bg-cover bg-center bg-no-repeat">
-        <Cinta></Cinta>
+        <h1>Califica a tu asesor de tesis</h1>
         <LoginScreen></LoginScreen>
 
       </div>
