@@ -136,15 +136,18 @@ function PerfilAsesor({ nombre, universidad, deptoFacultad, temaInv, especialida
   return (
 
 
-    <div className=' flex flex-col justify-center items-center'>
+    <div className=' flex flex-col justify-center items-center bg-cyan-50'>
       <Toaster></Toaster>
 
 
 
 
-      <h1 className=' mt-6 font-bold text-2xl md:text-4xl text-center'>{nombre}</h1>
+      <h1 className=' font-bold text-3xl text-center my-2 md:text-6xl mb-3 text-yellow-950'>{nombre}</h1>
 
-      <h1 className=' my-6 font-semibold text-2xl md:text-4xl text-center'>Pertenece a: {universidad}</h1>
+      <h1 className=' font-bold text-3xl text-center my-2 md:text-4xl mb-3 text-yellow-950'>Pertenece a: <span className='text-blue-900'>{universidad}</span></h1>
+
+      <h1 className=' font-bold text-3xl text-center my-2 md:text-6xl mb-3 text-yellow-950'> ¿Fue tu asesor de tésis? <span className=' text-blue-900'> Calificalo </span></h1>
+
 
       {desplegar && (
         <button className=" mt-1 bg-blue-200 text-sky-950 p-2 rounded-md shadow-black shadow w-2/3 font-bold md:text-4xl" onClick={handleHideAgregar} >Cerrar dialogo</button>
@@ -213,10 +216,12 @@ function PerfilAsesor({ nombre, universidad, deptoFacultad, temaInv, especialida
       <h1 className=' my-6 font-semibold text-2xl md:text-4xl text-center'>Su principal linea de investigación es: {temaInv}</h1>
       <h1 className=' my-6 font-semibold text-2xl md:text-4xl text-center'>Las tecnicas que se especializa son: {especialidades}</h1>
 
-      {data && (<>
+      {data && (<div className=' mt-20 py-10 flex flex-col items-center bg-stone-100 w-full'>
+
+      <h1 className=' font-bold text-3xl text-center my-2 md:text-6xl mb-10 text-yellow-950'> Calificaciones proporcionadas por <span className=' text-blue-900'>alumnos</span></h1>
 
 
-        <h1 className=' font-semibold text-2xl md:text-4xl text-center'>Nivel de problematico</h1>
+        <h1 className=' font-semibold text-2xl md:text-4xl text-center'>Nivel de tranquilidad</h1>
         <Stars rating={rating2} isEdit={false}></Stars>
 
         <h1 className=' font-semibold text-2xl md:text-4xl text-center'>Interés en los estudiantes</h1>
@@ -234,7 +239,7 @@ function PerfilAsesor({ nombre, universidad, deptoFacultad, temaInv, especialida
         <h1 className=' font-semibold text-2xl md:text-4xl text-center'>Disponibilidad de tiempo</h1>
         <Stars rating={rating7} isEdit={false}></Stars>
 
-        <h1 className=' font-bold  text-3xl text-center md:text-4xl'> Sección de comentarios:</h1>
+        <h1 className=' font-bold text-3xl text-center my-2 md:text-6xl mt-10 mb-10 text-yellow-950'> Seccion de <span className=' text-blue-900'>Comentarios</span></h1>
         <ul>
           {data.map((item) => (
             <li key={item._id}>
@@ -251,7 +256,7 @@ function PerfilAsesor({ nombre, universidad, deptoFacultad, temaInv, especialida
           ))}
         </ul>
 
-      </>
+      </div>
       )}
 
 
