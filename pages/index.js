@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main >
       <div className=" h-screen bg-[url('/index.png')]  bg-cover bg-center bg-no-repeat">
-        <h1>Califica a tu asesor de tesis</h1>
+        <h1 className=' font-bold text-2xl text-center md:text-6xl'>Califica a tu asesor de tesis</h1>
         <LoginScreen></LoginScreen>
 
       </div>
