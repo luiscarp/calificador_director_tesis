@@ -1,8 +1,19 @@
 // components/SearchBox.js
 import { useState } from 'react';
 
+
 const SearchBox = () => {
   const [activeTab, setActiveTab] = useState('universidad');
+  const [universidad, setUniversidad] = useState("")
+  const [asesor, setAsesor] = useState("")
+
+const HandleSearch = () => {
+
+  console.log("ME PICOO")
+  console.log(asesor)
+  console.log(universidad)
+}
+
 
   return (
     <div className="max-w-md mx-auto bg-cyan-50 rounded-lg overflow-hidden md:w-1/2">
@@ -27,9 +38,13 @@ const SearchBox = () => {
               type="text" 
               className="w-full p-2 mb-4 border border-gray-200 rounded md:text-2xl" 
               placeholder={activeTab === 'universidad' ? 'Buscar Universidad' : 'Buscar Asesor'}
+              value={activeTab === 'universidad' ? universidad : asesor}
+              onChange={activeTab === 'universidad' ? (e) => setUniversidad(e.target.value) : (e) => setAsesor(e.target.value)}
             />
             <button 
               className="w-full mb-10 bg-blue-500 text-white p-2 rounded"
+              onClick={HandleSearch}
+              
             >
               Buscar
             </button>

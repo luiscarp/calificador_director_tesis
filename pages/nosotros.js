@@ -1,9 +1,11 @@
 import React from 'react'
 import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
+
+
 function nosotros() {
     return (
-        <div className=" h-screen bg-cyan-50 w-full">
+        <div className=" bg-cyan-50 w-full">
             <NavBar></NavBar>
 
             <img src="https://avatars.githubusercontent.com/u/76863603?v=4"

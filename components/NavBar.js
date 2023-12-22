@@ -12,7 +12,7 @@ const NavBar = () => {
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex justify-between items-center w-full md:w-auto">
           <Link href="/">
-            <span className="text-4xl font-bold mr-4 cursor-pointer">Califica tu asesor</span>
+            <span className=" text-sm lg:text-md font-bold mr-4 cursor-pointer">Califica tu asesor</span>
           </Link>
           <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
             <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -22,13 +22,13 @@ const NavBar = () => {
         </div>
         <div className={`flex-col md:flex-row flex ${isOpen ? 'block' : 'hidden'} md:flex`}>
           <Link href="/">
-            <span className=" font-bold mr-10 mt-3 md:mt-0 cursor-pointer text-2xl">Inicio</span>
+            <span className=" font-bold mr-10 mt-3 md:mt-0 cursor-pointer text-sm lg:text-md">Inicio</span>
           </Link>
           <Link href="/dashboard">
-            <span className="font-bold mr-10 mt-3 md:mt-0 cursor-pointer text-2xl">Dashboard</span>
+            <span className="font-bold mr-10 mt-3 md:mt-0 cursor-pointer text-sm lg:text-md">Dashboard</span>
           </Link>
           <Link href="/nosotros">
-            <span className=" font-bold mr-10 mt-3 md:mt-0 cursor-pointer text-2xl">Nosotros</span>
+            <span className=" font-bold mr-10 mt-3 md:mt-0 cursor-pointer text-sm lg:text-md">Nosotros</span>
           </Link>
           <div className="mt-3 md:mt-0">
             {!session ? (
@@ -36,11 +36,9 @@ const NavBar = () => {
                 Login
               </button>
             ) : (
-              <div className="flex flex-col md:flex-row items-center">
-                <span className=" font-bold mr-10 text-2xl">{session.user.name}</span>
-                <button onClick={() => signOut()} className="text-yellow-95 text-xl">
-                  (Logout)
-                </button>
+              <div className="flex flex-col md:flex-col items-center">
+                <span className=" font-bold mr-10 text-sm lg:text-md">{session.user.name}</span>
+
               </div>
             )}
           </div>
