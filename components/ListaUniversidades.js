@@ -59,9 +59,7 @@ function ListaUniversidades() {
 
     setDesplegar(false); // Establece desplegar como false
 
-    console.log(nombre)
-
-    console.log(ubi)
+  
 
     try {
       // Enviar datos a "/api/testmongodb" mediante una solicitud POST con Axios

@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google'
 import LoginScreen from '@/components/LoginScreen'
 import Cinta from '@/components/Cinta'
+import Footer from '@/components/Footer'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -13,6 +14,8 @@ export default function Home() {
         <LoginScreen></LoginScreen>
 
       </div>
+
+      <Footer></Footer>
     
       
 
